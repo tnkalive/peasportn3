@@ -1,5 +1,19 @@
 {
   "projects": {
-    "default": "sport-n3-cc23c"
-  }
+    "default": "sport-n3-cc23c",
+    "production": "sport-n3-cc23c"
+  },
+  "targets": {
+    "sport-n3-cc23c": {
+      "hosting": {
+        "sport-n3-cc23c": [
+          "public",
+          "sport-n3-cc23c.web.app",
+          "ยpublic",
+          "ยีpublic"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
