@@ -1,0 +1,25 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  box-shadow: 3px 0 6px rgba(0, 0, 0, .24)
+}
+
+.hidden {
+  display: none;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.logo-link{
+  text-decoration: none;
+  color: white;
+}
+.logo-link:visited{
+  text-decoration: none;
+  color: white;
+}

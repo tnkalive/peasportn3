@@ -1,0 +1,60 @@
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-small-box, .example-large-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  .example-small-box {
+    height: 100px;
+    width: 100px;
+  }
+  
+  .example-large-box {
+    height: 300px;
+    width: 300px;
+  }
+
+  table {
+    width: 100%;
+  }
+  mat-card{
+    justify-content: center;
+    align-items: center;
+  }
+  .mat-card-image-born{
+    margin-top: 1.5rem;
+    object-fit: cover; /*this makes the image in src fit to the size specified below*/
+    width: 60%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+    height: 60%;
+  }
+  .mat-card-image-logo{
+    margin-top: 1.5rem;
+   
+    width: 50%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+    height: 80%;
+  }
+  .mat-card-header-ebook{
+    /* background-color:#673ab7 !important;
+    width: 100%;
+    color: white;
+    justify-content: center;
+    align-items: center; */
+    height: 0%;
+
+  }
+  .tag-e-book{
+    margin-top: 1.5rem;
+  }

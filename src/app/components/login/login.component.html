@@ -1,0 +1,39 @@
+<mat-card *ngIf="!authState">
+    <mat-card-header>
+        <mat-card-title>
+            <h1>เข้าสู่ระบบ</h1>
+        </mat-card-title>
+        <mat-card-subtitle>ถ้ายังไม่มีรหัส ให้ดำเนินการติดต่อ (11)10366</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+
+        <form #loginForm="ngForm">
+            <mat-form-field appearance="outline">
+                <mat-label>User Name</mat-label>
+                <input matInput [(ngModel)]="loginForm.email" name="email" required>
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput [(ngModel)]="loginForm.password" name="password" required>
+            </mat-form-field>
+        </form>
+
+        <mat-chip-list *ngIf="loginMessage">
+            <br />
+            <mat-chip selected="true" color="warn">{{loginMessage}}</mat-chip>
+        </mat-chip-list>
+        <button mat-raised-button color="primary" (click)="takeLogin(loginForm.value)"
+            [disabled]="!loginForm.form.valid">เข้าสู่ระบบ</button>
+    </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="authState">
+    <mat-card-content>
+        เข้าสู่ระบบเรียบร้อยแล้วด้วยอีเมล์ {{ authState.email }}
+    </mat-card-content>
+    <mat-card-actions>
+        <a routerLink="../manage" mat-raised-button color="primary">ไปยังหน้าจัดการข้อมูล</a>
+        <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title class="mb-2">
+            <strong>โปรแกรมการแข่งขัน</strong>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-accordion class="example-headers-align">
+            <mat-expansion-panel *ngFor="let agendaItem of agendaList" (click)="selectAgenda(agendaItem)">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{ agendaItem.name }}
+                </mat-panel-title>
+                <mat-panel-description>
+                  วันที่ {{ agendaItem.date }} | {{ agendaItem.time }} | {{ agendaItem.location }}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div *ngIf="agendaDetailList.length > 0">
+                <table class="table table-striped">
+                  <thead>
+                    <th>ลำดับ</th>
+                    <th>วันที่</th>
+                    <th>เวลา</th>
+                    <th>คู่แข่งขัน</th>
+                    <th>สถานที่แข่ง</th>
+                    <th>ผลการแข่งขัน</th>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let agendaDetailItem of agendaDetailList">
+                      <td>
+                        {{ agendaDetailItem.seq }}
+                      </td>
+                      <td>
+                        {{ agendaDetailItem.date }}
+                      </td>
+                      <td>
+                        {{ agendaDetailItem.time }}
+                      </td>
+                      <td>
+                        {{ agendaDetailItem.competitor }}
+                      </td>
+                      <td>
+                        {{ agendaDetailItem.location }}
+                      </td>
+                      <td>
+                        {{ agendaDetailItem.score }}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div *ngIf="agendaDetailList.length == 0">
+                <table class="table">
+                  <thead>
+                    <th>ลำดับ</th>
+                    <th>วันที่</th>
+                    <th>เวลา</th>
+                    <th>คู่แข่งขัน</th>
+                    <th>สถานที่แข่ง</th>
+                    <th>ผลการแข่งขัน</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        -
+                      </td>
+                      <td>
+                        -
+                      </td>
+                      <td>
+                        -
+                      </td>
+                      <td>
+                        -
+                      </td>
+                      <td>
+                        -
+                      </td>
+                      <td>
+                        -
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

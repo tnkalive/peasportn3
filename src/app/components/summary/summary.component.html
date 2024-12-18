@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title class="mb-2">
+            <strong>สรุปผลการแข่งขัน</strong>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <th></th>
+                <th>อันดับ 1</th>
+                <th>อันดับ 2</th>
+                <th>อันดับ 3</th>
+                <th></th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let agendaListItem of agendaList; let i = index">
+                  <td>
+                    {{ agendaListItem.name }}
+                  </td>
+                  <td>
+                    {{ agendaListItem.gold }}
+                  </td>
+                  <td>
+                    {{ agendaListItem.silver }}
+                  </td>
+                  <td>
+                    {{ agendaListItem.bronze }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
