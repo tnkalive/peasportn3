@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
           case 'auth/wrong-password': { this.loginMessage = 'Username หรือ Password ไม่ถูกต้อง กรุณาเช็คความถูกต้องใหม่อีกครั้ง'; break; }
           case 'auth/user-not-found': { this.loginMessage = 'Username หรือ Password ไม่ถูกต้อง กรุณาเช็คความถูกต้องใหม่อีกครั้ง'; break; }
           case 'auth/invalid-email': { this.loginMessage = 'Username หรือ Password ไม่ถูกต้อง กรุณาเช็คความถูกต้องใหม่อีกครั้ง'; break; }
-          default: { this.loginMessage = 'เกิดข้อผิดพลาด กรุณาติดต่อ 084-0408844 / (11)10366'; break; }
+          default: { this.loginMessage = 'เกิดข้อผิดพลาด กรุณาติดต่อ 098-2305707 / (13)10361'; break; }
         }
 
       });
