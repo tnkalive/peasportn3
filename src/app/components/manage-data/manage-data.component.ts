@@ -104,9 +104,9 @@ export class ManageDataComponent implements OnInit {
   }
 
   getTeamPrizeList() {
-    this.db.collection<Team>('team', ref => ref.orderBy('gold', 'asc')).snapshotChanges().subscribe(teamList => {
+    this.db.collection<Team>('team').snapshotChanges().subscribe(teamList => {
+      this.teamList = [];
       teamList.map(teamItem => {
-        this.selectedTeamPrize = null;
         this.teamList.push({
           id: teamItem.payload.doc.id,
           team: teamItem.payload.doc.data().team,

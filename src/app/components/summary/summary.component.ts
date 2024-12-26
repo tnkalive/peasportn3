@@ -89,14 +89,14 @@ export class SummaryComponent implements OnInit {
   }
 
   getTeamPrizeList() {
-    this.db.collection<Team>('team', ref => ref.orderBy('gold', 'asc')).snapshotChanges().subscribe(teamList => {
+    this.db.collection<Team>('team', ref => ref.orderBy('gold', 'desc')).valueChanges().subscribe(teamList => {
       teamList.map(teamItem => {
         this.teamList.push({
-          id: teamItem.payload.doc.id,
-          team: teamItem.payload.doc.data().team,
-          gold: teamItem.payload.doc.data().gold,
-          silver: teamItem.payload.doc.data().silver,
-          bronze: teamItem.payload.doc.data().bronze,
+          id: teamItem.id,
+          team: teamItem.team,
+          gold: teamItem.gold,
+          silver: teamItem.silver,
+          bronze: teamItem.bronze,
         });
       });
     });
