@@ -35,6 +35,16 @@ interface Agenda {
   bronze: number;
 }
 
+
+interface Team {
+  id: string;
+  team: string;
+  gold: number;
+  silver: number;
+  bronze: number;
+}
+
+
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
@@ -45,9 +55,11 @@ export class SummaryComponent implements OnInit {
   dataSource = ELEMENT_DATA;
 
   agendaList: Agenda[] = [];
+  teamList: Team[] = [];
 
   constructor(private db: AngularFirestore) {
     this.getData();
+    this.getTeamPrizeList();
   }
 
   ngOnInit() {
@@ -74,5 +86,19 @@ export class SummaryComponent implements OnInit {
           });
         });
       });
+  }
+
+  getTeamPrizeList() {
+    this.db.collection<Team>('team', ref => ref.orderBy('gold', 'asc')).snapshotChanges().subscribe(teamList => {
+      teamList.map(teamItem => {
+        this.teamList.push({
+          id: teamItem.payload.doc.id,
+          team: teamItem.payload.doc.data().team,
+          gold: teamItem.payload.doc.data().gold,
+          silver: teamItem.payload.doc.data().silver,
+          bronze: teamItem.payload.doc.data().bronze,
+        });
+      });
+    });
   }
 }

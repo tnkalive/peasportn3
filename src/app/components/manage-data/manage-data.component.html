@@ -154,7 +154,7 @@
                       </mat-card-title>
                     </mat-card-header>
                     <mat-card-content>
-                      
+
                       <form #AgendaDetailForm="ngForm" (ngSubmit)="insertAgendaDetail(AgendaDetailForm)" class="form">
                         <input [ngModel]="selectedAgenda.id" type="hidden" name="id">
                         <div class="input-group input-group-sm mb-3">
@@ -295,7 +295,7 @@
                           </table>
                         </div>
                       </div>
-                      
+
                     </mat-card-content>
                   </mat-card>
                 </div>
@@ -340,6 +340,55 @@
                               <td>
                                 <input type="submit" value="บันทึกข้อมูล" class="btn btn-sm btn-info"
                                   (click)="updateRank(agendaListItem)" />
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+              </div>
+
+            </mat-tab>
+
+            <mat-tab label="จัดการข้อมูลจำนวนรางวัล">
+
+              <div class="row mt-2">
+                <div class="col-12">
+                  <mat-card>
+                    <mat-card-content>
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <th>#</th>
+                            <th>สี</th>
+                            <th>เหรียญทอง</th>
+                            <th>เหรียญเงิน</th>
+                            <th>เหรียญทองแดง</th>
+                            <th>จัดการข้อมูล</th>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let teamListItem of teamList; let i = index">
+                              <td>{{i+1}}</td>
+                              <td>
+                                {{teamListItem.team}}
+                              </td>
+                              <td>
+                                <input type="number" class="form-control form-control-sm" name="gold"
+                                  value="{{ teamListItem.gold }}" [(ngModel)]="teamListItem.gold" />
+                              </td>
+                              <td>
+                                <input type="number" class="form-control form-control-sm" name="silver"
+                                  value="{{ teamListItem.silver }}" [(ngModel)]="teamListItem.silver" />
+                              </td>
+                              <td>
+                                <input type="number" class="form-control form-control-sm" name="bronze"
+                                  value="{{ teamListItem.bronze }}" [(ngModel)]="teamListItem.bronze" />
+                              </td>
+                              <td>
+                                <input type="submit" value="บันทึกข้อมูล" class="btn btn-sm btn-info"
+                                  (click)="updateTeamPrize(teamListItem)" />
                               </td>
                             </tr>
                           </tbody>

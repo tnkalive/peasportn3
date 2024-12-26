@@ -39,6 +39,14 @@ interface Gallery {
   name: string;
 }
 
+interface Team {
+  id: string;
+  team: string;
+  gold: number;
+  silver: number;
+  bronze: number;
+}
+
 @Component({
   selector: 'app-manage-data',
   templateUrl: './manage-data.component.html',
@@ -49,7 +57,9 @@ export class ManageDataComponent implements OnInit {
   agendaDetailList: AgendaDetail[] = [];
   contactList: Contact[] = [];
   galleryList: Gallery[] = [];
+  teamList: Team[] = [];
 
+  selectedTeamPrize: Team;
   selectedAgenda: Agenda;
 
   isNewAgenda: boolean = false;
@@ -58,6 +68,7 @@ export class ManageDataComponent implements OnInit {
 
   constructor(private db: AngularFirestore) {
     this.getData();
+    this.getTeamPrizeList();
     this.getContactList();
     this.getGalleryList();
   }
@@ -90,6 +101,21 @@ export class ManageDataComponent implements OnInit {
           });
         });
       });
+  }
+
+  getTeamPrizeList() {
+    this.db.collection<Team>('team', ref => ref.orderBy('gold', 'asc')).snapshotChanges().subscribe(teamList => {
+      teamList.map(teamItem => {
+        this.selectedTeamPrize = null;
+        this.teamList.push({
+          id: teamItem.payload.doc.id,
+          team: teamItem.payload.doc.data().team,
+          gold: teamItem.payload.doc.data().gold,
+          silver: teamItem.payload.doc.data().silver,
+          bronze: teamItem.payload.doc.data().bronze,
+        });
+      });
+    });
   }
 
   getContactList() {
@@ -129,6 +155,11 @@ export class ManageDataComponent implements OnInit {
 
     this.selectedAgenda = agendaItem;
     this.getAgendaDetail(agendaItem.id);
+  }
+
+  selectTeam(teamPrizeItem: Team) {
+    this.selectedTeamPrize = null;
+    this.selectedTeamPrize = teamPrizeItem;
   }
 
   insertNewAgenda(form) {
@@ -260,6 +291,8 @@ export class ManageDataComponent implements OnInit {
     });
   }
 
+
+
   deleteAgendaDetail(agendaDetailItem: any) {
     this.agendaDetailList = [];
     this.db.collection('agenda/' + this.selectedAgenda.id + '/agenda-detail').doc(agendaDetailItem.id).delete().then(() => {
@@ -298,6 +331,7 @@ export class ManageDataComponent implements OnInit {
 
     });
   }
+
 
   addNewContact() {
     if (this.isNewContact) {
@@ -345,6 +379,25 @@ export class ManageDataComponent implements OnInit {
         timer: 1500
       }).then(() => {
         this.getContactList();
+      });
+
+    });
+  }
+
+  updateTeamPrize(teamtList: any) {
+    this.db.collection('team').doc(teamtList.id).update({
+      gold: teamtList.gold,
+      silver: teamtList.silver,
+      bronze: teamtList.bronze
+    }).then(() => {
+
+      Swal.fire({
+        icon: 'success',
+        title: 'บันทึกสำเร็จ',
+        showConfirmButton: false,
+        timer: 1500
+      }).then(() => {
+        this.getTeamPrizeList();
       });
 
     });

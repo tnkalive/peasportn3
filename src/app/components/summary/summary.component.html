@@ -39,6 +39,47 @@
 
         </mat-card-content>
       </mat-card>
+      <mat-card class="mt-5">
+        <mat-card-header>
+          <mat-card-title class="mb-2">
+            <strong>ยอดรวมเหรียญ</strong>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <th></th>
+                <th>เหรียญทอง</th>
+                <th>เหรียญเงิน</th>
+                <th>เหรียญทองแดง</th>
+                <th>ผลรวม</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let teamListItem of teamList; let i = index">
+                  <td>
+                    {{ teamListItem.team }}
+                  </td>
+                  <td>
+                    {{ teamListItem.gold }}
+                  </td>
+                  <td>
+                    {{ teamListItem.silver }}
+                  </td>
+                  <td>
+                    {{ teamListItem.bronze }}
+                  </td>
+                  <td>
+                    {{ teamListItem.gold + teamListItem.silver + teamListItem.bronze  }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
     </div>
   </div>
 </div>
