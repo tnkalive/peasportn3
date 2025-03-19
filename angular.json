@@ -70,18 +70,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sports3north-program:build"
+            "buildTarget": "sports3north-program:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sports3north-program:build:production"
+              "buildTarget": "sports3north-program:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sports3north-program:build"
+            "buildTarget": "sports3north-program:build"
           }
         },
         "test": {
