@@ -21,9 +21,10 @@ interface AgendaDetail {
 }
 
 @Component({
-  selector: 'app-agenda',
-  templateUrl: './agenda.component.html',
-  styleUrls: ['./agenda.component.css']
+    selector: 'app-agenda',
+    templateUrl: './agenda.component.html',
+    styleUrls: ['./agenda.component.css'],
+    standalone: false
 })
 export class AgendaComponent implements OnInit {
   agendaList: Agenda[] = [];

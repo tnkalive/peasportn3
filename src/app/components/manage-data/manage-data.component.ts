@@ -48,9 +48,10 @@ interface Team {
 }
 
 @Component({
-  selector: 'app-manage-data',
-  templateUrl: './manage-data.component.html',
-  styleUrls: ['./manage-data.component.css']
+    selector: 'app-manage-data',
+    templateUrl: './manage-data.component.html',
+    styleUrls: ['./manage-data.component.css'],
+    standalone: false
 })
 export class ManageDataComponent implements OnInit {
   agendaList: Agenda[] = [];

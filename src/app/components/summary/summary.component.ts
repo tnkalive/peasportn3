@@ -46,9 +46,10 @@ interface Team {
 
 
 @Component({
-  selector: 'app-summary',
-  templateUrl: './summary.component.html',
-  styleUrls: ['./summary.component.css']
+    selector: 'app-summary',
+    templateUrl: './summary.component.html',
+    styleUrls: ['./summary.component.css'],
+    standalone: false
 })
 export class SummaryComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'gold', 'silver', 'bronze'];
