@@ -1,4 +1,4 @@
-<mat-card *ngIf="!authState">
+<mat-card appearance="outlined" *ngIf="!authState">
     <mat-card-header>
         <mat-card-title>
             <h1>เข้าสู่ระบบ</h1>
@@ -19,16 +19,16 @@
             </mat-form-field>
         </form>
 
-        <mat-chip-list *ngIf="loginMessage">
+        <mat-chip-listbox *ngIf="loginMessage">
             <br />
-            <mat-chip selected="true" color="warn">{{loginMessage}}</mat-chip>
-        </mat-chip-list>
+            <mat-chip-option selected="true" color="warn">{{loginMessage}}</mat-chip-option>
+        </mat-chip-listbox>
         <button mat-raised-button color="primary" (click)="takeLogin(loginForm.value)"
             [disabled]="!loginForm.form.valid">เข้าสู่ระบบ</button>
     </mat-card-content>
 </mat-card>
 
-<mat-card *ngIf="authState">
+<mat-card appearance="outlined" *ngIf="authState">
     <mat-card-content>
         เข้าสู่ระบบเรียบร้อยแล้วด้วยอีเมล์ {{ authState.email }}
     </mat-card-content>
