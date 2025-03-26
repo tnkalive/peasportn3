@@ -8,10 +8,9 @@ interface Gallery {
 }
 
 @Component({
-    selector: 'app-gallery',
-    templateUrl: './gallery.component.html',
-    styleUrls: ['./gallery.component.css'],
-    standalone: false
+  selector: 'app-gallery',
+  templateUrl: './gallery.component.html',
+  styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent implements OnInit {
   galleryList: Gallery[];

@@ -5,10 +5,9 @@ import { map } from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
-    selector: 'app-main-nav',
-    templateUrl: './main-nav.component.html',
-    styleUrls: ['./main-nav.component.css'],
-    standalone: false
+  selector: 'app-main-nav',
+  templateUrl: './main-nav.component.html',
+  styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent {
   authState: any = null;
