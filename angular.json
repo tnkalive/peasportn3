@@ -27,7 +27,7 @@
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
-            "scripts": [      
+            "scripts": [
             ],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -70,18 +70,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "sports3north-program:build"
+            "browserTarget": "sports3north-program:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "sports3north-program:build:production"
+              "browserTarget": "sports3north-program:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "sports3north-program:build"
+            "browserTarget": "sports3north-program:build"
           }
         },
         "test": {
